@@ -18,4 +18,8 @@
         <ProjectReference Include="..\MTCG_Rutschka\MTCG_Rutschka.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="IntegrationTests\" />
+	</ItemGroup>
+
 </Project>
