@@ -167,6 +167,9 @@ namespace MTCG_Rutschka {
         /// <param name="result">The BattleResult to be saved in the DB</param>
         private void UpdateStats(Player pone, Player ptwo, BattleResult result) {
             //DB Update
+            pone.CleanupDeck();
+            ptwo.CleanupDeck();
+
             Program.MyDb.UpdateUserStats(pone);
             Program.MyDb.UpdateUserStats(ptwo);
             Program.MyDb.CreateBattle(result);
