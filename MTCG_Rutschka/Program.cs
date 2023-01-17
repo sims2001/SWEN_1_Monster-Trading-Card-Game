@@ -356,6 +356,9 @@ namespace MTCG_Rutschka {
                                 } 
                                 else
                                     reply += ActivePlayers[e.Username].GetDeckCardsJson();
+
+                                status = 200;
+                                statusMessage = "Successfully read Playerdeck";
                             }
                             catch (NoCardsException) {
                                 status = 204;
@@ -379,6 +382,9 @@ namespace MTCG_Rutschka {
                                 foreach (var card in e.SingleValues) {
                                     ActivePlayers[e.Username].MoveToDeck(card);
                                 }
+
+                                status = 200;
+                                statusMessage = "The deck has been successfully configured";
                             }
                             catch (WrongCardCountException) {
                                 status = 400;
