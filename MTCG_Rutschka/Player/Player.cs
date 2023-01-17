@@ -60,6 +60,16 @@ namespace MTCG_Rutschka {
             return rCard;
         }
 
+        /// <summary> Cleans up the Deck before setting a new one </summary>
+        public void ClearDeck() {
+            while (PlayerDeck.Count > 0) {
+                var toClean = PlayerDeck.ElementAt(0);
+                PlayerStack.Add(toClean.Key, toClean.Value);
+                Program.MyDb.DeckToStack(PlayerName, toClean.Value);
+                PlayerDeck.Remove(toClean.Key);
+            }
+        }
+
         /// <summary>
         /// Cleanup Deck after Fight (max 4 Cards in Deck)
         /// Also Update DB
@@ -72,6 +82,7 @@ namespace MTCG_Rutschka {
                 PlayerDeck.Remove(toClean.Key );
             }
         }
+
 
         /// <summary> CleanUp the Deck For Tests (No DBHandling) </summary>
         public void CleanupDeckForTest() {
