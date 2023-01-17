@@ -379,7 +379,7 @@ namespace MTCG_Rutschka {
                                 if (ActivePlayers[e.Username].NotAllInStack(e.SingleValues))
                                     throw new CardNotAvailableException();
 
-                                ActivePlayers[e.Username].CleanupDeck();
+                                ActivePlayers[e.Username].ClearDeck();
                                 foreach (var card in e.SingleValues) {
                                     ActivePlayers[e.Username].MoveToDeck(card);
                                 }
